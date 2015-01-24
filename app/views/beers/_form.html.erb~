@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.select :style, options_for_select(["Weizen", "Lager", "Pale ale", "IPA", "Porter"]) %>
+    <%= f.select :style, options_for_select(["Free", "Basic", "Advanced", "Super Platinum"]) %>
   </div>
   <div class="field">
     <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name) %>

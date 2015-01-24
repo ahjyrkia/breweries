@@ -18,13 +18,18 @@
         <td><%= link_to beer.name, beer %></td>
         <td><%= beer.style %></td>
         <td><%= link_to beer.brewery.name, beer.brewery %></td>
-        <td><%= link_to 'Show', beer %></td>
         <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
         <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+<% if @beer.ratings.empty? %>
+ beer has not yet been rated!
+<% else %>
+ beer has some ratings
+<% end %>
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 
