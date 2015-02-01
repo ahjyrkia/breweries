@@ -59,6 +59,7 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
       Rating.all.select{ |r| r.user.nil? }.each(&:delete)
+      session[:user_id] = nil
     end
   end
 
