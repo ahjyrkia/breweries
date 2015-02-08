@@ -3,6 +3,12 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov', require: false
+end
 group :production do
    gem 'pg'
    gem 'rails_12factor'
@@ -10,6 +16,9 @@ end
 gem 'bcrypt', '~> 3.1.7'
 ruby '2.2.0'
 gem "better_errors"
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record

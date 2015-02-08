@@ -1,12 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h2>List of ratings</h2>
 
-<h1>Listing of ratings</h1>
 <ul>
- <% @ratings.each do |rating| %>
-   <li> <%= rating  %> <%= link_to rating.user.username, rating.user %> </li>
- <% end %>
+  <% @ratings.each do |rating| %>
+    <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
+  <% end %>
 </ul>
-</p>
-<%= link_to 'new rating', new_rating_path %>
-<p>
 
+<%= link_to 'New Rating', new_rating_path %>

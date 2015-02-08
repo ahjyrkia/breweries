@@ -4,10 +4,9 @@ class BreweriesController < ApplicationController
 
   # GET /breweries
   # GET /breweries.json
- def index
-   @breweries = Brewery.all
-
- end
+  def index
+    @breweries = Brewery.all
+  end
 
   # GET /breweries/1
   # GET /breweries/1.json
@@ -53,7 +52,6 @@ class BreweriesController < ApplicationController
     end
   end
 
-
   # DELETE /breweries/1
   # DELETE /breweries/1.json
   def destroy
@@ -65,6 +63,15 @@ class BreweriesController < ApplicationController
   end
 
   private
+
+    def authenticate
+      admin_accounts = { "admin" => "sekret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
+
+      authenticate_or_request_with_http_basic do |username, password|
+        admin_accounts[username] == password
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_brewery
       @brewery = Brewery.find(params[:id])
@@ -74,16 +81,4 @@ class BreweriesController < ApplicationController
     def brewery_params
       params.require(:brewery).permit(:name, :year)
     end
-  private
-
-  def authenticate
-   admin_accounts = { "admin" => "secret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
-
-   authenticate_or_request_with_http_basic do |username, password|
-      username == "admin" and password == "secret" or 
-      username == "pekka" and password == "beer" or
-      username == "pekka" and password == "foobar" or
-      username == "matti" and password == "ittam"
-   end
- end
 end
