@@ -1,10 +1,15 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.2.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: VZd/Zk1Dw55gnPiFrSKPaghbXU759Ic/KG/FRZKdIJCyS8X6EHkZ2WjL517VCReJbanKbIp/aqoWRQV2grnfWOi6Ah3CynnzGCLPeaXpSaKTNR00SxMaShdtx9rMSdR7cWimjmSrLJ9tDWFCKTyt9CidbQs8ku6fhtF24/wH3Nk=
+  app: nameless-reaches-4368
+  on:
+    repo: ahjyrkia/breweries
