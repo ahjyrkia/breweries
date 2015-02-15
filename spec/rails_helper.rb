@@ -3,7 +3,7 @@ require 'simplecov'
 SimpleCov.start('rails')
 
 ENV['RAILS_ENV'] ||= 'test'
-
+require 'webmock/rspec'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
