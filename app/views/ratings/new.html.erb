@@ -12,8 +12,10 @@
   </div>
 <% end %>
 
-<%= form_for(@rating) do |f| %>
-  <%= f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s) %>
-  score: <%= f.number_field :score %>
-  <%= f.submit %>
-<% end %>
+  <h4>give a rating:</h4>
+
+  <%= form_for(@rating) do |f| %>
+    <%= f.hidden_field :beer_id %>
+    score: <%= f.number_field :score %>
+    <%= f.submit class:"btn btn-primary" %>
+  <% end %>

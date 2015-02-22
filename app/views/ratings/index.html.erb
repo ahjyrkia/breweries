@@ -8,4 +8,4 @@ Total of <%= @ratings.count %> ratings given
   <% end %>
 </ul>
 
-<%= link_to 'New Rating', new_rating_path if current_user %>
+<button type="button" class="btn btn-info dropdown-toggle"> <%= link_to 'New Rating', new_rating_path if current_user %> </button>

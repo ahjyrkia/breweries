@@ -10,6 +10,10 @@
   <p>
     Has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= @user.average_rating %>
   </p>
+
+  <p>Favorite brewery: <%=@user.favorite_brewery.name %> </p>
+  <p>Favorite beer: <%=@user.favorite_beer %> </p>
+  <p>Favorite style: <%=@user.favorite_style %> </p>
 <% end %>
 
 <% if @user.beer_clubs.any? %>
